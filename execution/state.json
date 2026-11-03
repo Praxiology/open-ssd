@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0-bootstrap",
+  "project": "spec-driven-dev-agent",
+  "status": "in_progress",
+  "current_phase": {
+    "id": "phase-2",
+    "name": "Architecture",
+    "status": "in_progress"
+  },
+  "current_workflow": "architecture-design",
+  "current_task": "phase-2-architecture-boundaries",
+  "updated_at": "2026-11-03",
+  "completed_phases": ["phase-1"],
+  "checkpoint": "execution/checkpoints/phase-2-bootstrap-2026-11-03.md",
+  "next_action": "Define six-system ownership and the portable core/adapter/Runtime boundaries; refine the architecture diagram and ADRs.",
+  "notes": "Bootstrap execution state is a temporary workflow record, not the final Runtime state schema. The Runtime schema, transition API, persistence and recovery guarantees remain to be designed and validated during Phase 7."
+}

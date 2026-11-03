@@ -15,6 +15,8 @@ Define a tool-neutral canonical SSD core and a separately versioned adapter for 
 
 The product must not claim “works in any AI tool” as a blanket compatibility guarantee. The supported set is the set of adapters that pass installation, discovery, workflow, verification, and upgrade conformance checks.
 
+For MVP, the user selected VS Code Copilot as the sole certified host. Claude Code and Codex remain follow-on adapter candidates; this narrows the initial conformance gate without changing the product's long-term multi-host design.
+
 ## Alternatives Considered
 
 1. **One universal `.agent.md`:** rejected because most hosts do not load that file and hook/tool semantics differ.
@@ -31,6 +33,6 @@ The product must not claim “works in any AI tool” as a blanket compatibility
 
 ## Open Questions
 
-- Which 2-3 hosts define the MVP compatibility gate?
+- **Resolved for MVP:** VS Code Copilot is the only initial compatibility gate. Claude Code and Codex remain follow-on candidates.
 - Should the canonical skill format adopt Agent Skills Open Standard directly, or use an SSD schema that can project into it?
 - Which capabilities require a local deterministic Runtime instead of relying on host behavior?

@@ -21,10 +21,13 @@
 
 ## Open Decisions
 
-- MVP adapter hosts (candidate set only: VS Code Copilot, Claude Code, Codex).
 - Canonical skill schema versus direct adoption/projection of Agent Skills Open Standard.
-- Whether MVP requires a deterministic local Runtime or uses host-native workflows with bounded support tiers.
-- Which capabilities are hard constraints versus best-effort guidance by host.
+- Runtime package language/distribution and which checks beyond the agreed minimum are mandatory.
+
+## User Decisions Captured
+
+- MVP compatibility gate: VS Code Copilot only; Claude Code and Codex are follow-on candidates, not initial compatibility claims.
+- MVP includes a lightweight companion CLI for install/upgrade, schema/state/checkpoint validation, and adapter conformance. Model/tool execution and sandboxing remain with the host.
 
 ## Next Action
 

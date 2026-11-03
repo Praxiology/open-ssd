@@ -18,6 +18,7 @@
 
 - Phase 1 research coverage closed with documented limitations in [`checkpoints/phase-1-complete-2026-11-03.md`](checkpoints/phase-1-complete-2026-11-03.md).
 - Created [`ARCHITECTURE.md`](../ARCHITECTURE.md), [`architecture/index.md`](../architecture/index.md), and Proposed [ADR-001](../architecture/adr/ADR-001-portable-core-and-adapters.md), [ADR-002](../architecture/adr/ADR-002-authority-and-evidence-boundaries.md), and [ADR-003](../architecture/adr/ADR-003-host-runtime-boundary.md).
+- User decision: MVP initially certifies VS Code Copilot only and includes a lightweight companion CLI; Claude Code/Codex remain follow-on candidates, while model/tool execution and sandboxing remain host-owned.
 - Preserved all user files and uncommitted changes; upstream project test suites were not run.
 
 ## Acceptance Criteria

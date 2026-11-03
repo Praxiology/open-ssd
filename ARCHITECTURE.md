@@ -51,8 +51,8 @@ spec-driven-dev-agent/
     verification/
   adapters/
     vscode-copilot/
-    claude-code/
-    codex/
+    future/claude-code/
+    future/codex/
   installer/
   runtime/
     contracts/
@@ -200,11 +200,27 @@ Separate the normative workflow from enforcement capability. The MVP may use hos
 
 Avoid full event sourcing or multi-agent fan-out by default. Begin with structured state, task DAGs, atomic file operations, checkpoints, and reproducible verification. Adopt event replay, worktree concurrency, or centralized scheduling only when multi-session evidence warrants the complexity.
 
+## MVP Runtime Contract
+
+The user's MVP decision is one certified adapter (VS Code Copilot) plus a lightweight local CLI. The exact command syntax and package language are not fixed yet; the following are behavior contracts, not finalized command names:
+
+| Operation | Required behavior |
+|---|---|
+| Install / upgrade | Detect VS Code workspace scope, compute an install plan, preserve unowned/user-edited files, write an ownership/version manifest, and roll back or retain recovery snapshots on failure |
+| Doctor / capability report | Verify installed adapter files, host version/surfaces, required permissions, and conformance status without claiming unsupported host guarantees |
+| Validate | Validate core schemas, references, task/Spec traceability, state transitions, and evidence record structure |
+| Status | Read authoritative workflow state and report the current phase/task, blockers, approvals, and stale/missing artifact findings |
+| Checkpoint / resume | Bind checkpoint to state revision and artifact hashes; verify files and worktree before restoring; reject stale or contradictory snapshots |
+| Verify | Run only declared/allowlisted checks; show exact commands/results and distinguish automated checks, model review, and human approval |
+
+The CLI must not execute arbitrary commands embedded in Specs or model output. A project may declare verification commands in a trusted, reviewable manifest; high-risk commands require user approval and are subject to host/runtime policy.
+
+The VS Code adapter initially emits only supported native surfaces. Preview/host-specific Hooks are opt-in and labeled by semantic guarantee; the baseline workflow must still function through Skills/agent instructions and the companion CLI without assuming a Hook fired.
+
 ## Phase 2 Open Decisions
 
-- Candidate MVP hosts: VS Code Copilot, Claude Code, and Codex are evidence-backed candidates, not yet approved scope.
 - Canonical Skill format: Agent Skills Open Standard as the interchange surface versus SSD-owned schema with generated projections.
-- Runtime packaging: optional local CLI versus host-native scripts plus JSON Schemas.
+- Runtime CLI implementation language, distribution channel, and state schema/version migration strategy.
 - Which workflow/permission guarantees are MVP hard constraints versus capability-tier limitations.
 
 ## Verification Status
